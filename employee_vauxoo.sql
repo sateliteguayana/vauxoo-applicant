@@ -81,3 +81,36 @@ UPDATE employee_employee.employee SET hobby_id='{1,2}' WHERE id=1;
 UPDATE employee_employee.employee SET hobby_id='{2,3}' WHERE id=2;
 UPDATE employee_employee.employee SET hobby_id='{2,3}' WHERE id=3;
 UPDATE employee_employee.employee SET hobby_id='{1}' WHERE id=4;
+
+-- Make table employee_position
+CREATE TABLE employee_employee.employee_position (
+    id int NOT NULL UNIQUE,
+    name varchar(255), 
+    description varchar(500),
+    PRIMARY KEY (id)
+);
+
+-- Add column position_id to indicate wich is the position of the employee
+ALTER TABLE employee_employee.employee ADD position_id int;
+
+-- Insert positions
+INSERT INTO employee_employee.employee_position (id,name,description) 
+    VALUES ('1','Jefe', 'Jefe de departamento');
+INSERT INTO employee_employee.employee_position (id,name,description) 
+    VALUES ('2','Encargado', 'Encargado de área');
+INSERT INTO employee_employee.employee_position (id,name,description) 
+    VALUES ('3','Empleado', 'Empleado de un área determinada');
+
+-- Add column chief_id to indicate wich is the chief for one employee
+UPDATE employee_employee.employee SET position_id=3 WHERE id=1;
+UPDATE employee_employee.employee SET position_id=3 WHERE id=2;
+UPDATE employee_employee.employee SET position_id=3 WHERE id=3;
+UPDATE employee_employee.employee SET position_id=1 WHERE id=4;
+
+-- Add column chief_id to indicate wich is the position of the employee
+ALTER TABLE employee_employee.employee ADD chief_id int;
+    
+-- Insert column chief_id to indicate wich is the chief for one employee
+UPDATE employee_employee.employee SET chief_id=4 WHERE id=1;
+UPDATE employee_employee.employee SET chief_id=4 WHERE id=2;
+UPDATE employee_employee.employee SET chief_id=4 WHERE id=3;
