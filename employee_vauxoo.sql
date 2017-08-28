@@ -56,3 +56,28 @@ INSERT INTO employee_employee.employee_department (id,name,description)
     VALUES ('6','Danza', 'Departamento donde se destacan los diferentes artistas de la danza');
     
 
+-- Add fields deparment_id and employee_id
+ALTER TABLE employee_employee.employee ADD department_id int;
+
+-- Insert value to each employee and field related with deparment
+UPDATE employee_employee.employee SET department_id=1 WHERE id=1;
+UPDATE employee_employee.employee SET department_id=1 WHERE id=2;
+UPDATE employee_employee.employee SET department_id=2 WHERE id=3;
+UPDATE employee_employee.employee SET department_id=1 WHERE id=4;
+
+-- Add fields hobby_id and employee_id
+ALTER TABLE employee_employee.employee ADD hobby_id integer ARRAY;
+
+-- Insert hobbies into table employee_hobby
+INSERT INTO employee_employee.employee_hobby (id,name,description) 
+    VALUES ('1','Música', 'Escuchar música');
+INSERT INTO employee_employee.employee_hobby (id,name,description) 
+    VALUES ('2','Lectura', 'Leer un libro');
+INSERT INTO employee_employee.employee_hobby (id,name,description) 
+    VALUES ('3','Cine', 'Ir al cine');
+    
+-- Give one o more hobbies to an employee
+UPDATE employee_employee.employee SET hobby_id='{1,2}' WHERE id=1;
+UPDATE employee_employee.employee SET hobby_id='{2,3}' WHERE id=2;
+UPDATE employee_employee.employee SET hobby_id='{2,3}' WHERE id=3;
+UPDATE employee_employee.employee SET hobby_id='{1}' WHERE id=4;
