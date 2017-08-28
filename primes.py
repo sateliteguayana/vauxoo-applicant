@@ -16,6 +16,6 @@ class PrimeClass(object):
     """
     n = input("Introduce un número entero: ")    
     if type(n) == int and n > 2:
-        is_prime(n)
+        print is_prime(n)
     else:
         print "Es flotante o uno (1), realice nuevamente la operación"

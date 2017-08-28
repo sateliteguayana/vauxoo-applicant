@@ -1,16 +1,16 @@
-"""
-Your module documentation here
-"""
+#!/usr/bin/env python
+#-*- encoding: UTF-8 -*-
 
+import re
 
 class CalculatorClass(object):
-    """
-    Your class documentation here
-    """
-
-    def sum(self, num_list):
-        """
-        Your method documentation here
-        """
-        # your sum code here
-        return "not implement yet"  # Remove this dummy line
+    
+    def sum(num_list):
+        total = 0
+        for i in num_list:
+            total += i
+        return total
+        
+    lista = [1, 2, 4, 5, 6, 7]
+    print sum(lista)
+        
